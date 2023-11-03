@@ -1,15 +1,17 @@
 package myweb.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import myweb.model.User;
 import org.springframework.stereotype.Repository;
-import javax.persistence.*;
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @PersistenceContext(unitName = "emf")
-    private EntityManager entityManager;
+    @PersistenceContext
+    public EntityManager entityManager;
 
     @Override
     public List<User> getUsers() {
